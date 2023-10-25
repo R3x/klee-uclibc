@@ -82,7 +82,7 @@ libc_hidden_proto(memset)
 libc_hidden_proto(strcpy)
 libc_hidden_proto(strlen)
 libc_hidden_proto(ungetc)
-libc_hidden_proto(vfscanf)
+libc_hidden_proto(vfscanf_griller)
 libc_hidden_proto(vsscanf)
 libc_hidden_proto(fclose)
 
@@ -168,8 +168,8 @@ _stdlib_strto_l(register const char * __restrict str,
 /**********************************************************************/
 #ifdef L_fscanf
 
-libc_hidden_proto(fscanf)
-int fscanf(FILE * __restrict stream, const char * __restrict format, ...)
+libc_hidden_proto(fscanf_griller)
+int fscanf_griller(FILE * __restrict stream, const char * __restrict format, ...)
 {
 	va_list arg;
 	int rv;
@@ -180,7 +180,7 @@ int fscanf(FILE * __restrict stream, const char * __restrict format, ...)
 
 	return rv;
 }
-libc_hidden_def(fscanf)
+libc_hidden_def(fscanf_griller)
 
 #endif
 /**********************************************************************/
@@ -615,7 +615,7 @@ typedef unsigned char __uchar_t;
 #define Wchar char
 #define Wuchar __uchar_t
 #define ISSPACE(C) isspace((C))
-#define VFSCANF vfscanf
+#define VFSCANF vfscanf_griller
 #ifdef __UCLIBC_HAS_WCHAR__
 #define GETC(SC) (SC)->sc_getc((SC))
 #else  /* __UCLIBC_HAS_WCHAR__ */
