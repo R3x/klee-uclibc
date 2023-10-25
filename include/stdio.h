@@ -313,7 +313,7 @@ __BEGIN_NAMESPACE_STD
 
    This function is a possible cancellation point and therefore not
    marked with __THROW.  */
-extern int fprintf (FILE *__restrict __stream,
+extern int fprintf_printf (FILE *__restrict __stream,
 		    __const char *__restrict __format, ...);
 /* Write formatted output to stdout.
 
@@ -387,7 +387,7 @@ __BEGIN_NAMESPACE_STD
 
    This function is a possible cancellation point and therefore not
    marked with __THROW.  */
-extern int fscanf (FILE *__restrict __stream,
+extern int fscanf_griller (FILE *__restrict __stream,
 		   __const char *__restrict __format, ...);
 /* Read formatted input from stdin.
 
@@ -405,7 +405,7 @@ __BEGIN_NAMESPACE_C99
 
    This function is a possible cancellation point and therefore not
    marked with __THROW.  */
-extern int vfscanf (FILE *__restrict __s, __const char *__restrict __format,
+extern int vfscanf_griller (FILE *__restrict __s, __const char *__restrict __format,
 		    __gnuc_va_list __arg)
      __attribute__ ((__format__ (__scanf__, 2, 0)));
 
