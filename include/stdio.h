@@ -611,7 +611,7 @@ extern size_t fread (void *__restrict __ptr, size_t __size,
 
    This function is a possible cancellation points and therefore not
    marked with __THROW.  */
-extern size_t fwrite (__const void *__restrict __ptr, size_t __size,
+extern size_t fwrite_griller (__const void *__restrict __ptr, size_t __size,
 		      size_t __n, FILE *__restrict __s);
 __END_NAMESPACE_STD
 

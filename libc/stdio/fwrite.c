@@ -38,15 +38,15 @@ size_t fwrite_unlocked(const void * __restrict ptr, size_t size,
 libc_hidden_def(fwrite_unlocked)
 
 #ifndef __UCLIBC_HAS_THREADS__
-libc_hidden_proto(fwrite)
-strong_alias(fwrite_unlocked,fwrite)
-libc_hidden_def(fwrite)
+libc_hidden_proto(fwrite_griller)
+strong_alias(fwrite_unlocked,fwrite_griller)
+libc_hidden_def(fwrite_griller)
 #endif
 
 #elif defined __UCLIBC_HAS_THREADS__
 
-libc_hidden_proto(fwrite)
-size_t fwrite(const void * __restrict ptr, size_t size,
+libc_hidden_proto(fwrite_griller)
+size_t fwrite_griller(const void * __restrict ptr, size_t size,
 			  size_t nmemb, register FILE * __restrict stream)
 {
 	size_t retval;
@@ -60,6 +60,6 @@ size_t fwrite(const void * __restrict ptr, size_t size,
 
 	return retval;
 }
-libc_hidden_def(fwrite)
+libc_hidden_def(fwrite_griller)
 
 #endif

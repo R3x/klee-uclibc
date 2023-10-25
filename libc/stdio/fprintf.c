@@ -10,8 +10,8 @@
 
 libc_hidden_proto(vfprintf)
 
-libc_hidden_proto(fprintf)
-int fprintf(FILE * __restrict stream, const char * __restrict format, ...)
+libc_hidden_proto(fprintf_griller)
+int fprintf_griller(FILE * __restrict stream, const char * __restrict format, ...)
 {
 	va_list arg;
 	int rv;
@@ -40,4 +40,4 @@ int fprintf(FILE * __restrict stream, const char * __restrict format, ...)
 
 	return rv;
 }
-libc_hidden_def(fprintf)
+libc_hidden_def(fprintf_griller)
