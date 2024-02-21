@@ -88,17 +88,17 @@ strong_alias(__fgetc_unlocked,getc_unlocked)
 libc_hidden_def(getc_unlocked)
 
 #ifndef __UCLIBC_HAS_THREADS__
-libc_hidden_proto(fgetc)
-strong_alias(__fgetc_unlocked,fgetc)
-libc_hidden_def(fgetc)
+libc_hidden_proto(fgetc_griller)
+strong_alias(__fgetc_unlocked,fgetc_griller)
+libc_hidden_def(fgetc_griller)
 
-strong_alias(__fgetc_unlocked,getc)
+strong_alias(__fgetc_unlocked,getc_griller)
 #endif
 
 #elif defined __UCLIBC_HAS_THREADS__
 
-libc_hidden_proto(fgetc)
-int fgetc(register FILE *stream)
+libc_hidden_proto(fgetc_griller)
+int fgetc_griller(register FILE *stream)
 {
 	if (stream->__user_locking != 0) {
 		return __GETC_UNLOCKED_MACRO(stream);
@@ -110,8 +110,8 @@ int fgetc(register FILE *stream)
 		return retval;
 	}
 }
-libc_hidden_def(fgetc)
+libc_hidden_def(fgetc_griller)
 
-strong_alias(fgetc,getc)
+strong_alias(fgetc_griller,getc_griller)
 
 #endif
