@@ -239,7 +239,7 @@ extern struct tm *gmtime (__const time_t *__timer) __THROW;
 
 /* Return the `struct tm' representation
    of *TIMER in the local timezone.  */
-extern struct tm *localtime (__const time_t *__timer) __THROW;
+extern struct tm *localtime_griller (__const time_t *__timer) __THROW;
 __END_NAMESPACE_STD
 
 # if defined __USE_POSIX || defined __USE_MISC

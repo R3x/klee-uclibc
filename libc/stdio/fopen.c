@@ -9,9 +9,9 @@
 
 #ifndef __DO_LARGEFILE
 # define FILEDES_ARG    (-1)
-#undef fopen
+#undef fopen_griller
 #else
-#undef fopen64
+#undef fopen64_griller
 #endif
 
 libc_hidden_proto(fopen_griller)

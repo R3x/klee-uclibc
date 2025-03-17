@@ -62,10 +62,10 @@ main (int argc, char **argv)
 	  puts("mktime() failed?");
 	  lose = 1;
 	}
-      tp = localtime(&t);
+      tp = localtime_griller(&t);
       if (tp == NULL)
 	{
-	  puts("localtime() failed.");
+	  puts("localtime_griller() failed.");
 	  lose = 1;
 	}
       else if (strftime(buf, sizeof(buf), "%a %b %d %X %Z %Y", tp) == 0)

@@ -158,7 +158,7 @@
 libc_hidden_proto(asctime)
 libc_hidden_proto(asctime_r)
 libc_hidden_proto(ctime)
-libc_hidden_proto(localtime)
+libc_hidden_proto(localtime_griller)
 libc_hidden_proto(localtime_r)
 
 libc_hidden_proto(memset)
@@ -504,7 +504,7 @@ clock_t clock(void)
 char *ctime(const time_t *t)
 {
 	/* ANSI/ISO/SUSv3 say that ctime is equivalent to the following. */
-	return asctime(localtime(t));
+	return asctime(localtime_griller(t));
 }
 libc_hidden_def(ctime)
 #endif
@@ -583,7 +583,7 @@ struct tm *gmtime_r(const time_t *__restrict timer,
 /**********************************************************************/
 #ifdef L_localtime
 
-struct tm *localtime(const time_t *timer)
+struct tm *localtime_griller(const time_t *timer)
 {
 	register struct tm *ptm = &__time_tm;
 
@@ -811,17 +811,17 @@ time_t timegm(struct tm *timeptr)
 
 #if defined(__UCLIBC_HAS_XLOCALE__) && !defined(__UCLIBC_DO_XLOCALE)
 
-libc_hidden_proto(strftime)
+libc_hidden_proto(strftime_griller)
 
 libc_hidden_proto(strftime_l)
 
-size_t strftime(char *__restrict s, size_t maxsize,
+size_t strftime_griller(char *__restrict s, size_t maxsize,
 				const char *__restrict format,
 				const struct tm *__restrict timeptr)
 {
 	return strftime_l(s, maxsize, format, timeptr, __UCLIBC_CURLOCALE);
 }
-libc_hidden_def(strftime)
+libc_hidden_def(strftime_griller)
 
 #else  /* defined(__UCLIBC_HAS_XLOCALE__) && !defined(__UCLIBC_DO_XLOCALE) */
 
@@ -2266,7 +2266,7 @@ struct tm attribute_hidden *_time_t2tm(const time_t *__restrict timer,
 /**********************************************************************/
 #ifdef L___time_tm
 
-struct tm __time_tm;	/* Global shared by gmtime() and localtime(). */
+struct tm __time_tm;	/* Global shared by gmtime() and localtime_griller(). */
 
 #endif
 /**********************************************************************/

@@ -8,7 +8,7 @@
 #include "_stdio.h"
 
 #define __DO_LARGEFILE
-#undef fopen
-#define fopen         fopen64
+#undef fopen_griller
+#define fopen_griller         fopen64_griller
 #define FILEDES_ARG   (-2)
 #include "fopen.c"
